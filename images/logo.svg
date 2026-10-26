@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- Organic Leaf + Earth Icon -->
+  <g transform="translate(10, 12)">
+    <!-- Soil / Earth Curve (Brown) -->
+    <path d="M4 46 C 18 42, 38 42, 52 46 C 44 54, 12 54, 4 46 Z" fill="#8C6541"/>
+    <!-- Blade 1 / Main Leaf (Dark Forest Green) -->
+    <path d="M12 44 C 10 20, 24 6, 38 2 C 34 16, 30 36, 26 44 Z" fill="#1B3B2B"/>
+    <!-- Blade 2 / Fresh Green Leaf (Emerald / Moss) -->
+    <path d="M26 44 C 30 28, 42 16, 52 14 C 48 26, 42 38, 36 44 Z" fill="#46734B"/>
+    <!-- Center delicate sprout line -->
+    <path d="M22 40 C 24 24, 32 14, 37 8" stroke="#D3E2CD" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <!-- Brand Typography -->
+  <text x="82" y="42" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.03em" fill="#14281D">GREEN <tspan fill="#8C6541" font-weight="700">BROWN</tspan></text>
+  <text x="84" y="60" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.22em" fill="#586A5F">ESPACIOS VERDES & INDUSTRIALES</text>
+</svg>

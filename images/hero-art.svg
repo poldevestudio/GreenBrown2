@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EBF2ED"/>
+      <stop offset="100%" stop-color="#DFEBE2"/>
+    </linearGradient>
+    <linearGradient id="lawn1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#284B34"/>
+      <stop offset="100%" stop-color="#1B3724"/>
+    </linearGradient>
+    <linearGradient id="lawn2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3A6444"/>
+      <stop offset="100%" stop-color="#284B34"/>
+    </linearGradient>
+    <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EDE7DE"/>
+      <stop offset="100%" stop-color="#D7CEBF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="500" rx="24" fill="url(#skyGrad)"/>
+
+  <!-- Distant Country / Parkland Trees -->
+  <circle cx="80" cy="220" r="45" fill="#A5C2AA" opacity="0.4"/>
+  <circle cx="150" cy="200" r="60" fill="#90B296" opacity="0.5"/>
+  <circle cx="230" cy="210" r="50" fill="#A5C2AA" opacity="0.4"/>
+  <circle cx="500" cy="210" r="55" fill="#90B296" opacity="0.5"/>
+
+  <!-- Modern House / Quinta Contour (Geometric Minimal) -->
+  <path d="M300 240 L300 150 L440 150 L440 240 Z" fill="#FFFFFF" opacity="0.85"/>
+  <rect x="320" y="170" width="40" height="50" rx="3" fill="#18221B" opacity="0.8"/>
+  <rect x="375" y="170" width="50" height="30" rx="3" fill="#18221B" opacity="0.8"/>
+  <line x1="280" y1="150" x2="460" y2="150" stroke="#8C6541" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Flowing Sculpted Lawn Waves -->
+  <!-- Layer 1 -->
+  <path d="M-20 320 C 140 250, 260 300, 620 230 L 620 520 L -20 520 Z" fill="url(#lawn2)"/>
+  <!-- Layer 2: Main Lawn Field with Stripes -->
+  <path d="M-20 360 C 160 310, 320 380, 620 290 L 620 520 L -20 520 Z" fill="url(#lawn1)"/>
+
+  <!-- Clean Cut Stripes on Main Lawn -->
+  <path d="M80 340 L 40 500 L 90 500 L 130 340 Z" fill="#2E553A" opacity="0.5"/>
+  <path d="M180 345 L 140 500 L 190 500 L 230 350 Z" fill="#2E553A" opacity="0.5"/>
+  <path d="M280 350 L 240 500 L 290 500 L 330 345 Z" fill="#2E553A" opacity="0.5"/>
+  <path d="M380 340 L 340 500 L 390 500 L 430 330 Z" fill="#2E553A" opacity="0.5"/>
+  <path d="M480 320 L 440 500 L 490 500 L 530 300 Z" fill="#2E553A" opacity="0.5"/>
+
+  <!-- Zen Curving Walkway -->
+  <path d="M0 480 C 180 460, 260 390, 310 240 L 335 240 C 290 395, 210 475, 40 500 Z" fill="url(#pathGrad)"/>
+
+  <!-- Native Flora & Specimen Trees -->
+  <g transform="translate(100, 280)">
+    <path d="M25 60 L 25 20" stroke="#67492E" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="25" cy="5" r="28" fill="#4B7754"/>
+    <circle cx="15" cy="-2" r="20" fill="#5F916A"/>
+  </g>
+
+  <!-- Flying bird / Tero detail (authentic local wildlife signature) -->
+  <path d="M120 90 Q 130 80 140 90 Q 150 80 160 90 Q 150 85 140 92 Q 130 85 120 90 Z" fill="#18221B" opacity="0.7"/>
+  <path d="M165 105 Q 172 97 180 105 Q 188 97 195 105 Q 188 101 180 107 Q 172 101 165 105 Z" fill="#18221B" opacity="0.5"/>
+
+  <!-- Floating Quality Badge -->
+  <g transform="translate(390, 370)">
+    <rect width="180" height="74" rx="14" fill="#FFFFFF" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.12))"/>
+    <circle cx="34" cy="37" r="18" fill="#EAF3EC"/>
+    <path d="M26 37 L32 43 L42 31" stroke="#284B34" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="62" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#14281D">Mantenimiento</text>
+    <text x="62" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#67492E">Corte y Nivelación</text>
+  </g>
+</svg>

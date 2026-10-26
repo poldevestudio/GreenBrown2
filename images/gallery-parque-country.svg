@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340" fill="none">
+  <!-- Peaceful Country Garden & Swimming Pool Corner -->
+  <rect width="500" height="340" rx="16" fill="#E6EDE7"/>
+  <!-- Sculpted Lawn -->
+  <path d="M0 120 C 140 100, 240 140, 500 110 L 500 340 L 0 340 Z" fill="#2D5237"/>
+  <!-- Minimalist Pool Deck & Solarium -->
+  <path d="M220 180 L 480 140 L 500 320 L 250 340 Z" fill="#EAE3D5"/>
+  <!-- Turquoise Pool water -->
+  <path d="M250 200 L 450 165 L 470 300 L 270 320 Z" fill="#5BB8C6"/>
+  <!-- Specimen Trees / Cercos perimetrales -->
+  <circle cx="60" cy="110" r="35" fill="#3D6E47"/>
+  <circle cx="120" cy="95" r="42" fill="#4B7E55"/>
+  <circle cx="175" cy="115" r="30" fill="#3D6E47"/>
+  <!-- Tag -->
+  <rect x="28" y="260" width="230" height="52" rx="10" fill="#FFFFFF" opacity="0.92"/>
+  <text x="44" y="284" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#14281D">Parques con Piscina & Solárium</text>
+  <text x="44" y="300" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#67492E">Bordeado y perfilado milimétrico</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+  <rect width="400" height="260" rx="16" fill="#F4F1EA"/>
+  <!-- Rich Soil Base -->
+  <path d="M0 170 L400 170 L400 260 L0 260 Z" fill="#67492E"/>
+  <rect x="0" y="170" width="400" height="15" fill="#8C6541"/>
+  <!-- Laid Turf Slabs (Grama Bahiana Panes) -->
+  <g transform="translate(40, 120)">
+    <!-- Turf slab 1 -->
+    <rect x="0" y="30" width="130" height="22" rx="4" fill="#3D6847"/>
+    <rect x="0" y="48" width="130" height="6" fill="#67492E"/>
+    <!-- Grass texture blades -->
+    <path d="M10 30 L12 18 L16 30 M24 30 L26 15 L29 30 M40 30 L43 17 L47 30 M60 30 L63 16 L67 30 M85 30 L88 18 L92 30 M110 30 L113 15 L117 30" stroke="#52885E" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(180, 110)">
+    <!-- Turf Roll being unrolled -->
+    <ellipse cx="140" cy="45" rx="35" ry="30" fill="#2E5037"/>
+    <ellipse cx="140" cy="45" rx="20" ry="16" fill="#67492E"/>
+    <ellipse cx="140" cy="45" rx="10" ry="8" fill="#18221B"/>
+    <!-- Unrolling strip -->
+    <path d="M0 50 Q 70 50 140 30 L 140 60 Q 70 70 0 65 Z" fill="#46734B"/>
+    <!-- Grass blades -->
+    <path d="M10 50 L12 36 L15 50 M35 50 L38 34 L42 50 M65 48 L68 33 L72 48 M95 44 L98 28 L102 44" stroke="#6FB87E" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <!-- Leveling Tool / Shovel hint -->
+  <path d="M60 70 L95 140" stroke="#8C6541" stroke-width="6" stroke-linecap="round"/>
+  <path d="M90 135 L125 155 L110 170 L75 150 Z" fill="#4A5568"/>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+  <rect width="400" height="260" rx="16" fill="#F0F4EF"/>
+  <!-- Grass Field Lines (Lawn Stripes pattern) -->
+  <path d="M0 160 L400 160 L400 260 L0 260 Z" fill="#2E5037"/>
+  <path d="M50 160 L110 260 L160 260 L100 160 Z" fill="#3D6847" opacity="0.6"/>
+  <path d="M170 160 L230 260 L280 260 L220 160 Z" fill="#3D6847" opacity="0.6"/>
+  <path d="M290 160 L350 260 L400 260 L340 160 Z" fill="#3D6847" opacity="0.6"/>
+  <!-- Mower Machine Graphic -->
+  <circle cx="160" cy="180" r="26" fill="#18221B"/>
+  <circle cx="160" cy="180" r="14" fill="#8C6541"/>
+  <circle cx="260" cy="180" r="20" fill="#18221B"/>
+  <circle cx="260" cy="180" r="10" fill="#8C6541"/>
+  <!-- Machine Deck -->
+  <path d="M140 170 Q 210 130 270 165 L 280 180 L 140 180 Z" fill="#14281D"/>
+  <rect x="180" y="115" width="45" height="40" rx="6" fill="#8C6541"/>
+  <line x1="160" y1="160" x2="110" y2="90" stroke="#18221B" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="106" cy="85" r="9" fill="#18221B"/>
+  <!-- Clean Sparkle & Grass Flecks -->
+  <path d="M300 120 L306 132 L318 138 L306 144 L300 156 L294 144 L282 138 L294 132 Z" fill="#65A06F"/>
+  <path d="M70 125 L73 133 L81 137 L73 141 L70 149 L67 141 L59 137 L67 133 Z" fill="#8C6541"/>
+</svg>

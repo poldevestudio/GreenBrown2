@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+  <rect width="400" height="260" rx="16" fill="#EEF2F0"/>
+  <!-- Industrial Skyline Silhouette / Nave industrial -->
+  <path d="M40 140 L40 90 L110 90 L130 115 L200 115 L220 85 L320 85 L320 140 Z" fill="#D2DCD6"/>
+  <rect x="70" y="105" width="25" height="20" fill="#EEF2F0"/>
+  <rect x="250" y="100" width="30" height="20" fill="#EEF2F0"/>
+  <!-- Open Field & Roads -->
+  <path d="M0 140 L400 140 L400 260 L0 260 Z" fill="#31553B"/>
+  <!-- Wide field mower stripes -->
+  <path d="M120 140 L80 260 L140 260 L180 140 Z" fill="#3D6847"/>
+  <path d="M240 140 L220 260 L280 260 L290 140 Z" fill="#3D6847"/>
+  <!-- Heavy Tractor Silhouette -->
+  <g transform="translate(180, 150)">
+    <circle cx="95" cy="55" r="28" fill="#18221B"/>
+    <circle cx="95" cy="55" r="16" fill="#8C6541"/>
+    <circle cx="25" cy="62" r="18" fill="#18221B"/>
+    <circle cx="25" cy="62" r="10" fill="#8C6541"/>
+    <path d="M25 55 L95 45 L95 20 L55 20 L50 40 L20 45 Z" fill="#1B3B2B"/>
+    <rect x="60" y="24" width="28" height="18" fill="#EBE5DD" opacity="0.8"/>
+    <!-- Exhaust pipe -->
+    <line x1="38" y1="38" x2="38" y2="15" stroke="#18221B" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>
