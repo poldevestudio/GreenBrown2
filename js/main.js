@@ -42,9 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let isDragging = false;
     let startX = 0;
+    let startY = 0;
     let scrollStart = 0;
     let dragDistance = 0;
     let resumeTimer = null;
+    let momentumAnimId = null;
+    let lastTouchX = 0;
+    let lastTouchTime = 0;
+    let touchVelocity = 0;
+    let hasDeterminedDirection = false;
+    let isHorizDrag = false;
     const speed = 0.55; // Velocidad lenta y elegante hacia la izquierda (~33px/s)
 
     // Medir ancho de un set completo para el salto invisible
@@ -57,14 +64,34 @@ document.addEventListener('DOMContentLoaded', () => {
       return nav.scrollWidth / 3;
     }
 
+    function checkLoopBounds() {
+      const setWidth = getSetWidth();
+      if (setWidth > 20) {
+        if (nav.scrollLeft >= setWidth * 2) {
+          nav.scrollLeft -= setWidth;
+          if (isDragging) scrollStart -= setWidth;
+        } else if (nav.scrollLeft <= 0) {
+          nav.scrollLeft += setWidth;
+          if (isDragging) scrollStart += setWidth;
+        }
+      }
+    }
+
+    // Iniciar posicionado en el set 1 para permitir arrastre infinito hacia ambos lados
+    function initScrollPos() {
+      const sw = getSetWidth();
+      if (sw > 20 && nav.scrollLeft < 10) {
+        nav.scrollLeft = sw;
+      }
+    }
+    requestAnimationFrame(initScrollPos);
+    window.addEventListener('load', initScrollPos);
+
     // Auto-scroll continuo de derecha a izquierda (scrollLeft incrementa de forma suave)
     function autoScroll() {
       if (!isPaused && !isDragging) {
         nav.scrollLeft += speed;
-        const setWidth = getSetWidth();
-        if (setWidth > 0 && nav.scrollLeft >= setWidth) {
-          nav.scrollLeft -= setWidth;
-        }
+        checkLoopBounds();
       }
       requestAnimationFrame(autoScroll);
     }
@@ -73,26 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function pause() {
       isPaused = true;
       if (resumeTimer) clearTimeout(resumeTimer);
+      if (momentumAnimId) {
+        cancelAnimationFrame(momentumAnimId);
+        momentumAnimId = null;
+      }
     }
 
     function resumeLater(delay = 2000) {
       if (resumeTimer) clearTimeout(resumeTimer);
       resumeTimer = setTimeout(() => {
-        if (!isDragging) {
+        if (!isDragging && !momentumAnimId) {
           isPaused = false;
         }
       }, delay);
-    }
-
-    function checkLoopBounds() {
-      const setWidth = getSetWidth();
-      if (setWidth > 0) {
-        if (nav.scrollLeft >= setWidth * 2) {
-          nav.scrollLeft -= setWidth;
-        } else if (nav.scrollLeft <= 0) {
-          nav.scrollLeft += setWidth;
-        }
-      }
     }
 
     // Mouse events (Desktop Drag & Hover)
@@ -102,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     nav.addEventListener('mousedown', (e) => {
-      isDragging = true;
       pause();
+      isDragging = true;
       dragDistance = 0;
       startX = e.pageX;
       scrollStart = nav.scrollLeft;
@@ -122,30 +142,82 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isDragging) {
         isDragging = false;
         nav.classList.remove('is-grabbing');
-        resumeLater(2200);
+        resumeLater(2000);
       }
     });
 
-    // Touch events (Mobile - arrastre fluido con el dedo y pausa al tocar)
+    // Touch events (Mobile - arrastre fluido 1:1 con el dedo, soporte de touch prolongado e inercia)
     nav.addEventListener('touchstart', (e) => {
       pause();
       isDragging = true;
       dragDistance = 0;
+      hasDeterminedDirection = false;
+      isHorizDrag = false;
       startX = e.touches[0].pageX;
+      startY = e.touches[0].pageY;
+      lastTouchX = startX;
+      lastTouchTime = Date.now();
+      touchVelocity = 0;
       scrollStart = nav.scrollLeft;
     }, { passive: true });
 
     nav.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       const currentX = e.touches[0].pageX;
+      const currentY = e.touches[0].pageY;
       const deltaX = currentX - startX;
-      dragDistance = Math.abs(deltaX);
-      checkLoopBounds();
+      const deltaY = currentY - startY;
+
+      if (!hasDeterminedDirection) {
+        if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
+          hasDeterminedDirection = true;
+          isHorizDrag = Math.abs(deltaX) >= Math.abs(deltaY);
+        }
+      }
+
+      if (isHorizDrag) {
+        dragDistance = Math.abs(deltaX);
+        const now = Date.now();
+        touchVelocity = currentX - lastTouchX;
+        lastTouchX = currentX;
+        lastTouchTime = now;
+        nav.scrollLeft = scrollStart - deltaX;
+        checkLoopBounds();
+      }
     }, { passive: true });
 
     nav.addEventListener('touchend', () => {
       isDragging = false;
-      resumeLater(2500);
+      const timeSinceLastMove = Date.now() - lastTouchTime;
+
+      // Si fue arrastre horizontal con impulso, aplicar deslizamiento inercial suave
+      if (isHorizDrag && timeSinceLastMove < 120 && Math.abs(touchVelocity) > 1.2) {
+        let v = touchVelocity * 1.15;
+        function momentum() {
+          if (isDragging) return;
+          v *= 0.94;
+          nav.scrollLeft -= v;
+          checkLoopBounds();
+          if (Math.abs(v) > 0.3) {
+            momentumAnimId = requestAnimationFrame(momentum);
+          } else {
+            momentumAnimId = null;
+            resumeLater(2000);
+          }
+        }
+        momentumAnimId = requestAnimationFrame(momentum);
+      } else {
+        resumeLater(2000);
+      }
+    });
+
+    nav.addEventListener('touchcancel', () => {
+      isDragging = false;
+      if (momentumAnimId) {
+        cancelAnimationFrame(momentumAnimId);
+        momentumAnimId = null;
+      }
+      resumeLater(2000);
     });
 
     nav.addEventListener('scroll', () => {
